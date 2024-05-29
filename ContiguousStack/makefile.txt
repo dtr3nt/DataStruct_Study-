@@ -1,0 +1,9 @@
+all: stack
+stack: removal main.o Stack.o
+	g++ -o stack main.o Stack.o
+main.o: main.cpp
+	g++ -c -g main.cpp
+Stack.o: Stack.cpp
+	g++ -c -g Stack.cpp
+removal:
+	rm -f *.o
