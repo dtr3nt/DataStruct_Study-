@@ -1,0 +1,21 @@
+What is the purpose of defining dummy with its next being this->head on line 26?
+A: The dummy node acts as a save point for the head via dummy->next = head.
+
+On lines 45-46, the following code is used to set current (and prev) to the next node in the list for the subsequent iteration of the while loop:
+
+   prev = prev->next;
+   current = prev->next; 
+
+Why don’t we use the following code, which seems to accomplish the same purpose and appears to be more intuitive?
+
+   prev = current;
+   current = current->next;
+A: Copying current into prev overrides prev->next which is not correct. The ->next pointer need to be maintatined.
+
+On line 49, why is this->head reset to dummy_ptr->next, 
+which seems to be unnecessary as dummy_ptr->next has already been set to this->head on line 26 where dummy is defined?
+A: Because the first element of the list "head" can be changed to somewhere else in the list.
+This is why dummy node exist to always maintain true head via dummy_ptr->next.
+
+
+ 
